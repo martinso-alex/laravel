@@ -19,4 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/tipo-documento', 'TipoDocumentoController@index');
+Route::get('/tipo-documento', 'TipoDocumentoController@create');
+Route::post('/tipo-documento', 'TipoDocumentoController@store');
+Route::delete('/tipo-documento/{tipoDocumento}', 'TipoDocumentoController@destroy');
