@@ -57,7 +57,9 @@
                                     {{ method_field('delete') }}
                                 </form>
 
-                                <i class="material-icons right blue-text acoes update">create</i>
+                                <i class="material-icons right blue-text acoes update" data-target="modal-alterar">
+                                    create
+                                </i>
                             </td>
                         </tr>
                     @endforeach
@@ -68,7 +70,7 @@
 
     <div id="modal-cadastrar" class="modal">
         <div class="modal-content">
-            <h4>Deseja cadastrar este tipo de documento?</h4>
+            <h5>Deseja cadastrar este tipo de documento?</h5>
         </div>
 
         <div class="modal-footer">
@@ -79,12 +81,34 @@
 
     <div id="modal-deletar" class="modal">
         <div class="modal-content">
-            <h4>Deseja excluir este tipo de documento?</h4>
+            <h5>Deseja excluir este tipo de documento?</h5>
         </div>
 
         <div class="modal-footer">
             <a id="delete-button" class="modal-action modal-close waves-effect waves-red btn-flat">Sim</a>
             <a class="modal-action modal-close waves-effect waves-red btn-flat">Não</a>
+        </div>
+    </div>
+
+    <div id="modal-alterar" class="modal">
+        <div class="modal-content">
+            <h5>Alterar tipo de documento</h5>
+
+            <form id="update" class="col s10 offset-s1" method="POST" action="/tipo-documento">
+                {{ csrf_field() }}
+
+                <div class="row">
+                    <div class="input-field col s9">
+                        <input id="descricao" type="text" name="descricao" required>
+                        <label for="descricao">Tipo</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <a id="update-button" class="modal-action modal-close waves-effect waves-red btn-flat">Alterar</a>
+            <a class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
         </div>
     </div>
 @endsection
@@ -106,6 +130,17 @@
             $('#delete-button').on('click', function () {
                 var del =  $(this).parent().attr('id');
                 $('#delete-' + del).submit();
+            });
+
+            $('.update').on('click', function () {
+                $('#delete-button').parent().attr(
+                    'id',
+                    $(this).parent().attr('id')
+                );
+            });
+
+            $('#update-button').on('click', function () {
+                $('#update').submit();
             });
         });
     </script>
