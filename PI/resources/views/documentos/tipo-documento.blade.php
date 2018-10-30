@@ -100,7 +100,7 @@
 
                 <div class="row">
                     <div class="input-field col s9">
-                        <input id="descricao" type="text" name="descricao" required>
+                        <input id="descricao" type="text" name="descricao" placeholder="descrição" required>
                         <label for="descricao">Tipo</label>
                     </div>
                 </div>
@@ -139,7 +139,7 @@
                     '/tipo-documento/' + $(this).parent().attr('id')
                 );
 
-                $('#descricao').val($(this).parent().parent().children().first().text());
+                $('#update #descricao').val($(this).parent().parent().children().first().text());
             });
 
             $('#update-button').on('click', function () {
