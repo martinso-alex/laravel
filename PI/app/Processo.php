@@ -15,4 +15,9 @@ class Processo extends Model
     {
         return $this->belongsTo(Curso::class);
     }
+
+    public function tipoProcesso()
+    {
+        return $this->belongsTo(TipoProcesso::class);
+    }
 }

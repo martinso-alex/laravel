@@ -22,7 +22,7 @@
         <li><div class="divider"></div></li>
 
         <li><a class="waves-effect" href="/tipo-documento">Tipos de Documento</a></li>
-        <li><a class="waves-effect" href="">Tipos de Processo</a></li>
+        <li><a class="waves-effect" href="/tipo-processo">Tipos de Processo</a></li>
         <li><a class="waves-effect" href="">Cursos</a></li>
         <li><a class="waves-effect" href="">Processos</a></li>
         <li><a class="waves-effect" href="">Manual do Sistema</a></li>

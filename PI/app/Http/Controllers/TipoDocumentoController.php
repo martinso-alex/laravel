@@ -37,4 +37,13 @@ class TipoDocumentoController extends Controller
 
         return back();
     }
+    
+    public function update(TipoDocumento $tipoDocumento)
+    {
+        $this->validate(request(), ['descricao' => 'required']);
+
+        $tipoDocumento->update(['descricao' => request('descricao')]);
+
+        return back();
+    }
 }

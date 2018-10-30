@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <form id="create" class="col s10 offset-s1" method="POST" action="/tipo-documento">
+    <form id="create" class="col s10 offset-s1" method="POST" action="/tipo-processo">
         {{ csrf_field() }}
 
         <div class="row">
@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col s12">
             <br>
-            <h4 class="center red-text text-darken-1">Tipos de Documento</h4>
+            <h4 class="center red-text text-darken-1">Tipos de Processo</h4>
         </div>
 
         <div class="col s12">
@@ -51,7 +51,7 @@
                                     clear
                                 </i>
 
-                                <form id="delete-{{ $tipo->id }}" action="/tipo-documento/{{ $tipo->id }}" method="POST"
+                                <form id="delete-{{ $tipo->id }}" action="/tipo-processo/{{ $tipo->id }}" method="POST"
                                       style="display: none;">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
@@ -94,7 +94,7 @@
         <div class="modal-content">
             <h5>Alterar tipo de documento</h5>
 
-            <form id="update" class="col s10 offset-s1" method="POST" action="/tipo-documento">
+            <form id="update" class="col s10 offset-s1" method="POST" action="/tipo-processo">
                 {{ csrf_field() }}
                 {{ method_field('patch') }}
 
@@ -136,10 +136,8 @@
             $('.update').on('click', function () {
                 $('#update').attr(
                     'action',
-                    '/tipo-documento/' + $(this).parent().attr('id')
+                    '/tipo-processo/' + $(this).parent().attr('id')
                 );
-
-                $('#descricao').val($(this).parent().parent().children().first().text());
             });
 
             $('#update-button').on('click', function () {
